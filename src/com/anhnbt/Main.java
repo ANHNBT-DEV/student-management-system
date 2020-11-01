@@ -1,6 +1,7 @@
 package com.anhnbt;
 
 import com.anhnbt.common.Menu;
+import com.anhnbt.manager.StudentManager;
 
 import java.util.Scanner;
 
@@ -14,7 +15,8 @@ public class Main {
             /*
              * Initialize
              */
-            Menu menu = new Menu(scanner);
+            StudentManager studentManager = new StudentManager();
+            Menu menu = new Menu(scanner, studentManager);
             int choice;
 
             do {
@@ -26,10 +28,10 @@ public class Main {
                 choice = scanner.nextInt();
                 switch (choice) {
                     case exitProgram:
-                        System.out.println("Exit...");
+                        menu.quit();
                         break;
                     case addStudent:
-                        System.out.println("AddStudent!");
+                        menu.addStudent();
                         break;
                     case editStudent:
                         System.out.println("Your choice One");

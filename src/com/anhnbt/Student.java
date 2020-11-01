@@ -8,14 +8,16 @@ package com.anhnbt;
 public class Student extends Person {
     private static int nextId = 1;
     private int id;
+    private String email;
 
     public Student() {
-        this("", "");
+        this("", "", "");
     }
 
-    public Student(String name, String address) {
+    public Student(String name, String address, String email) {
         super(name, address);
         this.id = nextId;
+        this.email = email;
         nextId++;
     }
 
@@ -23,10 +25,19 @@ public class Student extends Person {
         return id;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
+                ", email='" + email + '\'' +
                 ", " + super.toString() +
                 '}';
     }
